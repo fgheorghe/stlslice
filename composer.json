@@ -1,0 +1,27 @@
+{
+  "name": "php3d/stlslice",
+  "type": "library",
+  "description": "PHP 7 library for slicing each layer of an STL file",
+  "keywords": ["stl","3d", "stereolithography", "3d printing"],
+  "homepage": "https://github.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Grosan Flaviu Gheorghe",
+      "email": "fgheorghe@grosan.co.uk",
+      "homepage": "http://grosan.co.uk",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-bcmath": "*",
+    "php3d/stl": "1.0.2",
+    "phpunit/phpunit": "5.4.6"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}

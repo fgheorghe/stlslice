@@ -10,62 +10,48 @@
 
 namespace php3d\stlslice;
 
-use php3d\stl\STL;
-
-class Geometry {
-    /**
-     * @var int
-     */
-    private $precision;
-
-    /**
-     * @var STL
-     */
-    private $stl;
+/**
+ * Class Geometry. Provides logic for intersecting a line with a plane.
+ *
+ * NOTE: Requires: bcscale(16);
+ *
+ */
+class Geometry
+{
+    const EPSILON = 1e-6;
 
     /**
-     * @return STL
+     * Returns the vector coordinates of the point where a line intersects a plane.
+     *
+     * Based on:
+     * http://stackoverflow.com/questions/5666222/3d-line-plane-intersection
+     * https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm
+     * http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/moller-trumbore-ray-triangle-intersection
+     *
+     * @param Vector $lineStart
+     * @param Vector $lineEnd
+     * @param Vector $planePointCoordinate
+     * @param Vector $planeNormalCoordinate
+     * @return Vector
+     * @throws \Exception If the line is parallel to the plane.
      */
-    public function getStl(): STL
+    public function intersect(
+        Vector $lineStart,
+        Vector $lineEnd,
+        Vector $planePointCoordinate,
+        Vector $planeNormalCoordinate
+    ) : Vector
     {
-        return $this->stl;
-    }
+        $uParameter = $lineEnd->sub($lineStart);
+        $dotProduct = $planeNormalCoordinate->dot($uParameter);
 
-    /**
-     * @param STL $stl
-     * @return Geometry
-     */
-    public function setStl(STL $stl): Geometry
-    {
-        $this->stl = $stl;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPrecision(): int
-    {
-        return $this->precision;
-    }
-
-    /**
-     * @param int $precision
-     * @return Geometry
-     */
-    public function setPrecision(int $precision): Geometry
-    {
-        $this->precision = $precision;
-        return $this;
-    }
-
-    /**
-     * Geometry constructor.
-     * @param STL $stl
-     * @param float $precision
-     */
-    public function __construct(STL $stl, float $precision)
-    {
-        $this->setStl($stl)->setPrecision($precision);
+        if (abs($dotProduct) > self::EPSILON) {
+            $w = $lineStart->sub($planePointCoordinate);
+            $factor = bcmul(-1, bcdiv($planeNormalCoordinate->dot($w), $dotProduct));
+            $uParameter = $uParameter->multiplyScalar($factor);
+            return $uParameter->add($lineStart);
+        } else {
+            throw new \Exception("Line is parallel to plane.");
+        }
     }
 }

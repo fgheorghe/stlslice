@@ -3,7 +3,7 @@
   "type": "library",
   "description": "PHP 7 library for slicing each layer of an STL file",
   "keywords": ["stl","3d", "stereolithography", "3d printing"],
-  "homepage": "https://github.com/",
+  "homepage": "https://github.com/fgheorghe/stlslice",
   "license": "MIT",
   "authors": [
     {

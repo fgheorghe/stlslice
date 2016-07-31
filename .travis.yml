@@ -1,0 +1,13 @@
+sudo: false
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+
+install:
+  - travis_retry composer install
+
+cache:
+    directories:
+        - .phpunit

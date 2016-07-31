@@ -1,8 +1,8 @@
-# php3d-slice #
+# php3d/stlslice #
 
-[![Build Status](https://travis-ci.org/fgheorghe/php3d-slice.svg?branch=master)](https://travis-ci.org/fgheorghe/php3d-slice)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fgheorghe/php3d-slice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fgheorghe/php3d-slice/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/fgheorghe/php3d-slice/badges/build.png?b=master)](https://scrutinizer-ci.com/g/fgheorghe/php3d-slice/build-status/master)
+[![Build Status](https://travis-ci.org/fgheorghe/stlslice.svg?branch=master)](https://travis-ci.org/fgheorghe/stlslice)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/fgheorghe/stlslice/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fgheorghe/stlslice/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/fgheorghe/stlslice/badges/build.png?b=master)](https://scrutinizer-ci.com/g/fgheorghe/stlslice/build-status/master)
 
 ## Synopsis
 

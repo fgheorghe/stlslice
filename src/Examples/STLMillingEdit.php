@@ -392,12 +392,17 @@ class STLMillingEdit
      */
     public function extractMillingContent() : STLMillingEdit
     {
-        $this->removeHighestXVertices()
-            ->removeLowestXVertices()
-            ->removeHighestYVertices()
-            ->removeLowestYVertices()
-            ->removeHighestZVertices()
-            ->removeLowestZVertices();
+        try {
+            $this->removeHighestXVertices()
+                ->removeLowestXVertices()
+                ->removeHighestYVertices()
+                ->removeLowestYVertices()
+                ->removeHighestZVertices()
+                ->removeLowestZVertices();
+        } catch (\TypeError $ex) {
+            // Silently ignore an object without remaining facets. This is normally detected by
+            // not being able to find a lower / higher coordinate.
+        }
         return $this;
     }
 }

@@ -18,7 +18,8 @@
     "ext-bcmath": "*",
     "ext-gd": "*",
     "php3d/stl": "1.0.2",
-    "phpunit/phpunit": "5.4.6"
+    "phpunit/phpunit": "5.4.6",
+    "mockery/mockery": "0.9.5"
   },
   "autoload": {
     "classmap": [

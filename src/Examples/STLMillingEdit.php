@@ -395,8 +395,6 @@ class STLMillingEdit
         try {
             $this->removeHighestXVertices()
                 ->removeLowestXVertices()
-                ->removeHighestYVertices()
-                ->removeLowestYVertices()
                 ->removeHighestZVertices()
                 ->removeLowestZVertices();
         } catch (\TypeError $ex) {

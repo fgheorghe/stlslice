@@ -31,7 +31,7 @@ try {
         ->slice();
 
     echo "[+] Generating SVG...\n";
-    file_put_contents($argv[2], (new STL2Svg($layers, 10))->toSvgString());
+    file_put_contents($argv[2], (new STL2Svg($layers))->toSvgString());
 
     echo "[++] Done.\n";
 } catch (Exception $ex) {

@@ -38,12 +38,8 @@ $layers = (new \php3d\stlslice\STLSlice($stl, 10))->slice();
 
 Convert to SVG:
 
-```PHP
-echo (new \php3d\stlslice\Examples\STL2Svg($layers))->toSvgString();
-```
+See stl2svg.php
 
 Convert to GCode (milling machine):
 
-```PHP
-echo (new \php3d\stlslice\Examples\STL2GCode($layers, 100))->toGCodeString();
-```
+See stl2gcode.php
